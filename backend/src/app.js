@@ -15,8 +15,8 @@ const db = knex({
 });
 
 //CRUD GAMES
-// Obtener todos los videojuegos
-app.get('/game', async (req, res) => {
+// Obtener todos los videojuegos -> OK
+app.get('/games', async (req, res) => {
     try {
         const game = await db('videogames').select('*');
         res.json(game);
@@ -25,11 +25,11 @@ app.get('/game', async (req, res) => {
     }
 });
 
-// Obtener un videojuego por ID
-app.get('/game/:gameId', async (req, res) => {
-    const { id } = req.params;
+// Obtener un videojuego por ID ->
+app.get('/games/:gameId', async (req, res) => {
+    const {id_videogame} = req.params;
     try {
-        const game = await db('game').where({ id });
+        const game = await db('game').select('*').from('videogames').where({ id_videogame: req.params.gameId });
         if (!game) return res.status(404).json({ error: 'Error, video game not found' });
         res.json(game);
     } catch (error) {
