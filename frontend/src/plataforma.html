@@ -18,26 +18,30 @@
             <a href="" class="nav-link">Games</a>
             <a href="" class="nav-link">Register a Game</a>
             <a href="" class="nav-link">Account</a>
+            <button onclick="logout()">Sing Out</button>
         </nav>
-        <main>
-
-
-
-
-
-
-
-        </main>
     </header>
+    <main>
+
+
+
+
+
+    </main>
     <section id="contact" class="contact-section">
         <div class="incident-container">
             <h2>Report Incident</h2>
             <input type="text" id="employee-name" placeholder="Employee's name">
             <input type="text" id="incident-title" placeholder="Title of the incident">
             <textarea id="incident-description" placeholder="Describe the problem"></textarea>
-            <button onclick="submitIncident()">Send</button>
+            <button onclick="submitIncident()" class="Send">Send</button>
         </div>
         <script>
+            function logout() {
+                localStorage.removeItem("loggedIn"); // Eliminar la sesión
+                window.location.href = "index.html"; // Redirigir al login
+                }
+
             function submitIncident() {
                 let name = document.getElementById('employee-name').value;
                 let title = document.getElementById('incident-title').value;
@@ -47,7 +51,6 @@
                     alert("Por favor, completa todos los campos");
                     return;
                 }
-    
                 alert("Incidencia enviada correctamente");
                 
                 // agregar código para guardar los datos en una base de datos o enviarlos a un servidor
