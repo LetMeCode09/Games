@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEFLIX</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Logo de la Página">
+            <h2 class="Nombre-pagina">GAMEFLIX</h2>
+        </a>
+        <nav>
+            <a href="" class="nav-link">Games</a>
+            <a href="" class="nav-link">Register a Game</a>
+            <a href="" class="nav-link">Account</a>
+        </nav>
+        <main>
+
+
+
+
+
+
+
+        </main>
+    </header>
+    <section id="contact" class="contact-section">
+        <div class="incident-container">
+            <h2>Report Incident</h2>
+            <input type="text" id="employee-name" placeholder="Employee's name">
+            <input type="text" id="incident-title" placeholder="Title of the incident">
+            <textarea id="incident-description" placeholder="Describe the problem"></textarea>
+            <button onclick="submitIncident()">Send</button>
+        </div>
+        <script>
+            function submitIncident() {
+                let name = document.getElementById('employee-name').value;
+                let title = document.getElementById('incident-title').value;
+                let description = document.getElementById('incident-description').value;
+    
+                if (name === "" || title === "" || description === "") {
+                    alert("Por favor, completa todos los campos");
+                    return;
+                }
+    
+                alert("Incidencia enviada correctamente");
+                
+                // agregar código para guardar los datos en una base de datos o enviarlos a un servidor
+            }
+        </script>
+    </section>
+    <footer class="pie-pagina">
+        <div class="social-icons">
+            <h2>Follow us on our Social Networks!</h2>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">🌐 Facebook</a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">🐦 X</a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">📷 Instagram</a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">🔗 LinkedIn</a>
+        </div>
+        <div class="contact-info">
+            <p>Email: info@GameFlix.com</p>
+            <p>Teléfono: +34 123 456 789</p>
+            <p>Dirección: C/ PlayStation 2ºB, Spain</p>
+        </div>
+        <small>&copy; 2024 <b>GAMEFLIX</b> - All rights reserved.</small>
+    </footer>
+</body>
+</html>

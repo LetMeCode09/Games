@@ -1,1 +1,31 @@
-git 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEFLIX</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Sign in</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Enter</button>
+    </div>
+
+    <script>
+        function login() {
+            let user = document.getElementById('username').value;
+            let pass = document.getElementById('password').value;
+            
+            if (user === "empleado" && pass === "1234") {
+                alert("Welcome back");
+                window.location.href = "./plataforma.html";
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+        }
+    </script>
+</body>
+</html>
