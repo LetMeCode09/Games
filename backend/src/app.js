@@ -18,7 +18,7 @@ const db = knex({
 // Obtener todos los videojuegos
 app.get('/game', async (req, res) => {
     try {
-        const game = await db('game').select('*');
+        const game = await db('videogames').select('*');
         res.json(game);
     } catch (error) {
         res.status(500).json({ error: 'Error, video games not found' });
@@ -29,7 +29,7 @@ app.get('/game', async (req, res) => {
 app.get('/game/:gameId', async (req, res) => {
     const { id } = req.params;
     try {
-        const game = await db('game').where({ id }).first();
+        const game = await db('game').where({ id });
         if (!game) return res.status(404).json({ error: 'Error, video game not found' });
         res.json(game);
     } catch (error) {
