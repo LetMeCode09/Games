@@ -1,0 +1,129 @@
+/* Sección de Contacto */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #121212);
+}
+
+/* Contenedor del Formulario */
+.incident-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Títulos */
+h2 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* Campos de Entrada */
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+textarea {
+    height: 140px;
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff4c4c;
+    box-shadow: 0 0 10px rgba(255, 76, 76, 0.5);
+}
+
+/* Placeholder */
+input::placeholder, textarea::placeholder {
+    color: #bbb;
+    opacity: 0.8;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff4c4c, #d40000);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #d40000, #a00000);
+    transform: scale(1.05);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 30px 15px;
+    }
+
+    .incident-container {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input, textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .incident-container {
+        padding: 25px;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+}

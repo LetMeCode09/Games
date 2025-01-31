@@ -1,0 +1,46 @@
+.pie-pagina {
+    background-color: rgb(0, 0, 0);
+    margin: 0%;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+footer .social-icons {
+    margin: auto;
+}
+
+footer .social-icons a {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+footer .social-icons a:hover {
+    color: #1da1f2;
+}
+
+footer .contact-info {
+    margin: 10px 0;
+}
+
+footer .contact-info p {
+    margin: 5px 0;
+}
+
+footer small {
+    display: block;
+    margin-top: 10px;
+    color: lightgrey;
+}
+
+@media (max-width:768px){
+    header{
+        flex-direction: column;
+    }
+
+    nav{
+        padding: 10px 0px;
+    }
+}
