@@ -14,7 +14,7 @@ const db = knex({
     useNullAsDefault: true
 });
 
-//CRUD GAMES
+//CRUD GAME
 // Obtener todos los videojuegos -> OK
 app.get('/games', async (req, res) => {
     try {
