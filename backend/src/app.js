@@ -52,11 +52,10 @@ app.post('/games', async (req, res) => {
 });
 
 // Actualizar un videojuego
-app.put('/game/:gameId', async (req, res) => {
-    const { id } = req.params;
+app.put('/games/:gameId', async (req, res) => {
     const { title, genre, year } = req.body;
     try {
-        const updated = await db('game').where({ id }).update({ title, genre, year });
+        const updated = await db('game').select('*').from('videogames').where({ id_videogame: req.params.gameId }).update({ title, genre, year });
         if (!updated) return res.status(404).json({ error: 'Error, video game not found' });
         res.json({ mensaje: 'Updated video game' });
     } catch (error) {
