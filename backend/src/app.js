@@ -61,13 +61,12 @@ app.put('/game/:gameId', async (req, res) => {
     }
 });
 
-// Eliminar un videojuego
-app.delete('/game/:gameId', async (req, res) => {
-    const { id } = req.params;
+// Eliminar un videojuego -> OK
+app.delete('/games/:gameId', async (req, res) => {
     try {
-        const deleted = await db('game').where({ id }).del();
+        const deleted = await db('game').select('*').from('videogames').where({ id_videogame: req.params.gameId }).del();
         if (!deleted) return res.status(404).json({ error: 'Error, video game not found' });
-        res.json({ mensaje: 'Video game deleted ' });
+        res.json({ mensaje: 'Video game deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting video game' });
     }
