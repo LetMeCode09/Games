@@ -38,13 +38,16 @@ app.get('/games/:gameId', async (req, res) => {
 });
 
 // Agregar un nuevo videojuego
-app.post('/', async (req, res) => {
-    const { title, genre, year } = req.body;
-    try {
-        const [id] = await db('game').insert({ title, genre, year });
-        res.json({ id, title, genre, year });
+app.post('/games', async (req, res) => {
+    try{
+        await db('videogames').insert({
+            title: req.body.title,
+            genre: req.body.genre,
+            year: req.body.year
+        });
+        res.status(201).json({message: 'Game added successfuly'});
     } catch (error) {
-        res.status(500).json({ error: 'Error adding the video game' });
+        res.status(500).json({error: 'Error adding a game'})
     }
 });
 
