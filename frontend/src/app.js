@@ -20,12 +20,12 @@ async function verJuegos() {
             
             // Botón de editar
             const editButton = document.createElement("button");
-            editButton.textContent = "Editar";
+            editButton.textContent = "Edit";
             editButton.onclick = () => editarJuego(juego.id_videogame);
             
             // Botón de borrar
             const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Borrar";
+            deleteButton.textContent = "Delete";
             deleteButton.onclick = () => borrarJuego(juego.id_videogame);
             
             item.appendChild(divTitle);
