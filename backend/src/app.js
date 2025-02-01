@@ -25,7 +25,7 @@ app.get('/games', async (req, res) => {
     }
 });
 
-// Obtener un videojuego por ID ->
+// Obtener un videojuego por ID -> OK
 app.get('/games/:gameId', async (req, res) => {
     const {id_videogame} = req.params;
     try {
