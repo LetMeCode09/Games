@@ -74,8 +74,64 @@ app.delete('/games/:gameId', async (req, res) => {
     }
 });
 
-app.listen(8081, () => {
-    console.log('El backend ha iniciado en el puerto 8081');
+
+
+
+//CRUD 2 ------------------------------------------------------------
+
+app.get('/platforms', async (req, res) => {
+    try {
+        const game = await db('platforms').select('*');
+        res.json(game);
+    } catch (error) {
+        res.status(500).json({ error: 'Error, platforms not found' });
+    }
 });
 
-//CRUD
+app.get('/platforms/:platformId', async (req, res) => {
+    const {id_videogame} = req.params;
+    try {
+        const game = await db('platforms').select('*').from('platforms').where({ id_platform: req.params.platformId });
+        if (!game) return res.status(404).json({ error: 'Error, platform not found' });
+        res.json(game);
+    } catch (error) {
+        res.status(500).json({ error: 'Error, platform not found' });
+    }
+});
+
+app.post('/platforms', async (req, res) => {
+    try{
+        await db('platforms').insert({
+            name: req.body.name
+        });
+        res.status(201).json({message: 'platform added successfuly'});
+    } catch (error) {
+        res.status(500).json({error: 'Error adding a platform'})
+    }
+});
+
+
+app.put('/platforms/:platformId', async (req, res) => {
+    const { name } = req.body;
+    try {
+        const updated = await db('game').select('*').from('platforms').where({ id_platform: req.params.platformId }).update({ name });
+        if (!updated) return res.status(404).json({ error: 'Error, video game not found' });
+        res.json({ mensaje: 'Updated platform' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error updating video game' });
+    }
+});
+
+app.delete('/platforms/:platformId', async (req, res) => {
+    try {
+        const deleted = await db('game').select('*').from('platforms').where({ id_platform: req.params.platformId }).del();
+        if (!deleted) return res.status(404).json({ error: 'Error, video game not found' });
+        res.json({ mensaje: 'platform deleted' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error deleting video game' });
+    }
+});
+
+app.listen(8080, () => {
+    console.log('El backend ha iniciado en el puerto 8080');
+});
